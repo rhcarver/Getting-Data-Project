@@ -9,14 +9,33 @@ variable names in the original data set, and are modified in this codebook.  Spe
 * the raw measurements were sampled at a constant rate of 50 Hz, meaning that they are recorded at regular
   time interval (variables beginning with t in the raw data)
 * the raw signals were analyzed (various filters) to remove noise and distinguishe between Body acceleration
-  and gravity accerlationr
+  and gravity accerlation (Dody or Gravity in the column name)
+* Further computations from the raw data genearated the angular velocity and "Jerk" (defined as the first 
+  derivative of acceleration. 
+* some of the transformed variables were further analyzed to create a set of frequency domain signals. These 
+  variables begin with the letter f in the list below.
+  
+## Naming conventions in this file
+
+Except for columns 1, 2 and 69 every value in the table is the mean of multiple measures, as specified in the 
+project assignment. 
+
+*  Most variables are time domain; those starting with _f_ are frequency domain.
+*  Any variable containing a capital _M_ refers to a mean; _S_ refer to a standard deviation
+*  All acceleration measures refer either to Body or Gravity
+*  The letters Acc in a variable indicate that the source was the phone accelerometer
+*  The letters Gyro indicate that the sourece was the gyroscope
+*  Mag indicates a computed magnitude (non-axial)
+*  Jerk indicates a computed first derivative of accleration
+
+
   
 
 
 Column	Variable Name	Comments
-1	SubjID	
-2	ActID	
-3	BodyAccM...X	
+1	SubjID	Subject ID number
+2	ActID	Activity ID number (see last column for descriptor)
+3	BodyAccM...X	Body acceleration Mean along X axis (next 2 refer to Y and Z)
 4	BodyAccM...Y	
 5	BodyAccM...Z	
 6	GravAccM...X	
@@ -82,4 +101,4 @@ Column	Variable Name	Comments
 66	fBodyBodyAccJerkMagS..	
 67	fBodyBodyGyroMagS..	
 68	fBodyBodyGyroJerkMagS..	
-69	Activity	
+69	Activity	Descriptive name of the activity (e.g. Walking, Sitting)
