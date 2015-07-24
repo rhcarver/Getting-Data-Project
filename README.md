@@ -66,9 +66,11 @@ To pull all of the data together into a large combined file (step 4) the major c
       code which uses a chained set of intructions to seleect variables with names containing "mean()" or "std()", but 
       exclusing three particular other contexts for the letters 'mean'
 
-<>s1 <- testdata %>%
+
+'''{r}
+s1 <- testdata %>%
       select(SubjID, ActID, matches("mean()"), matches("std()")) %>%
       select(-matches("meanfreq")) %>%
       select(-matches("gravityMean")) %>%
       select(-matches("AccMean")) 
-<>
+'''
