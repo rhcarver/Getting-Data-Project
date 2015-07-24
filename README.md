@@ -67,10 +67,10 @@ To pull all of the data together into a large combined file (step 4) the major c
       exclusing three particular other contexts for the letters 'mean'
 
 
-'''{r}
-s1 <- testdata %>%
-      select(SubjID, ActID, matches("mean()"), matches("std()")) %>%
-      select(-matches("meanfreq")) %>%
-      select(-matches("gravityMean")) %>%
-      select(-matches("AccMean")) 
-'''
+```
+   s1 <- testdata %>%
+         select(SubjID, ActID, matches("mean()"), matches("std()")) %>%
+         select(-matches("meanfreq")) %>%
+         select(-matches("gravityMean")) %>%
+         select(-matches("AccMean"))
+```
