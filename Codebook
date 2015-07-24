@@ -3,10 +3,13 @@
 ## Introduction and background
 In reviewing the 
 
+| a little | table|
+|----|----|
+|row | one|
 
 
 |Column|Variable Name| Comments|
---------------|------------|--------------------|
+|--------------|------------|--------------------|
 |1|SubjID||
 |2|ActID||
 |3|BodyAccM...X||
