@@ -57,7 +57,17 @@ To pull all of the data together into a large combined file (step 4) the major c
       as column names in the X_data table. 
 4.  bind (using mutate) the subject and activity id codes to the main X data. 
 
-   _NOTE: At this point, we have a table of the test data -- all columns.
+   _NOTE: At this point, we have a table of the test data -- all columns._
 5. Now repeat steps 3 and 4 for the training data
 6. With the two major data frames established, SELECT just those columns containing means or standard deviations 
-      once for test data, once for training data.
+      once for test data, once for training data. In my understanding of the data, I was looking just for variables 
+      with "mean()" or "std()" in the name. The letters 'mean' occur in some other variables as well. Hence, I wanted
+      to _exclude_ those particular columns. I achieved this (somewhat inelegantly) with, for example, this bit of 
+      code which uses a chained set of intructions to seleect variables with names containing "mean()" or "std()", but 
+      exclusing three particular other contexts for the letters 'mean'
+
+<s1 <- testdata %>%
+      select(SubjID, ActID, matches("mean()"), matches("std()")) %>%
+      select(-matches("meanfreq")) %>%
+      select(-matches("gravityMean")) %>%
+      select(-matches("AccMean")) >
