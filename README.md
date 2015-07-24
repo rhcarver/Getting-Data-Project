@@ -64,8 +64,9 @@ To pull all of the data together into a large combined file (step 4) the major c
       with "mean()" or "std()" in the name. The letters 'mean' occur in some other variables as well. Hence, I wanted
       to _exclude_ those particular columns. I achieved this (somewhat inelegantly) with, for example, this bit of 
       code which uses a chained set of intructions to seleect variables with names containing "mean()" or "std()", but 
-      exclusing three particular other contexts for the letters 'mean'
+      exclusing three particular other contexts for the letters 'mean'.
 
+      Comment: tables "s1" and "s2" are the subsets of the orginal data frames, just contianing the SELECTed columns
 
 ```
    s1 <- testdata %>%
@@ -74,3 +75,22 @@ To pull all of the data together into a large combined file (step 4) the major c
          select(-matches("gravityMean")) %>%
          select(-matches("AccMean"))
 ```
+7. At this point, using bind_rows I merged the training and test data tables into one large table of 10,299 rows and 
+      68 columns (subject ID, ACtivity ID, and 66 measures). To release some memory, I removed most other ojects
+8. I struggled with the decision over column naming. The names provided in the features list, and explained in 
+   features.info, are long and ungainly but they do follow a sensible naming convention. They are not quite 
+   "natural language" but are intelligible. However, some are so long that they bcome truncated within R.
+
+   So, I made some 'editorial' decisions on variable naming:
+   * shorten 'Gravity' to 'Grav'
+   * shorten 'mean()' and 'std()' to 'M' and 'S'
+   * all features begin with t (for time) or f (frequency). Becuase the large majority begin with 't', I dropped
+      the initial t's and left the initial f's, so any variable without a leading f is a time variable.
+   * removed the hypthen before X, Y, or Z just to shorten names
+ 
+9.  Prior to computing means of all subject-activity readings, I merged in the descriptive activity names. This appears 
+   as the final column in the tidy data set. 
+10.  Lastly, I summarized each set of subject-activity measures by taking their means, and wrote out the text file as 
+   specified in the assignment. 
+
+Within the concluding comments in the code, I included a template for reading back the data. 
