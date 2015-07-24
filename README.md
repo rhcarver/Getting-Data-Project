@@ -25,7 +25,28 @@ and the final tidy data set will consist of the means of recorded measurements f
 With the format of the final tidy dataset in mind, the coding strategy involved:
 * Invoking the dplyr package, to simplify variable selection and manipulaiton,  modifications of column names,
    and other operations.
-Starting points:
-* Main folder:  activity labels, features
-* Train folder: subject, X, y
-* Test folder:  subject, X, y (y is the activity)
+
+The files in the "train" and "test" folders are identical in name and structure, but refer to different groups of 
+subjects. In this part of the discussion, I'll focus on the Test data, but each comment refers to both folders.
+
+In the main data folder, *UCI HAR Dataset* we find 2 text files:
+* activity labels -- 6 observations of 2 columns, mapping an activity ID code to a named activity (eg. Walking)
+* features -- 561 observations of 2 columns, mapping a column number to the descriptor of a particular meassurement
+      Note: the naming conventions are a bit daunting, but are fully explained in the features_info.txt file.
+
+In both the *test* and *train* folders, there are three text files needed for this project
+* X_ -- the principal data source for the project (see below) n observations of 561 variables.
+* y_ -- n observations of 1 variable just identifying the _activity_ by numeric ID code. 
+* subject_ -- n observations of 1 variable, just identifying the subject being recorded by numeric ID code. The 
+   lists of subjects in the test and train data sets are mutually exclusive. 
+
+The analysis centers around the large data file X_test, containing 561 measurments for each subject's trials 
+in the six different activities. The file called "features_info" provides background on these many variables. For this 
+analysis, eventually we'll only include those variables (66 in all) that represent the mean or standard deviations of
+measurements. 
+
+This large X_test file (and the same for the X_train file) has no row identifiers or column (variable) labels.
+Fortunately we have all of the 561 variable names contained in the "features.txt" file, and we also have the descriptors of the activities (coded 1-6) in the "activity_labels.txt" file. 
+
+## Flow of the code:
+
