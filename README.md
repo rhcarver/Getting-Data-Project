@@ -15,7 +15,7 @@ This will be yield a data table, with 30 x 6  = 180 rows, and as many columns as
 standard deviation. 
 
 Hence the result of the script will be a data set with a format like this:
-   Subject   Activity   Var1-Mean    Var2-Mean ..... Var(k)-StdDev  Var(k+1)StdDev etc. 
+   SubjID   Activity_ID   Var1-Mean    Var2-Mean ..... Var(k)-StdDev  Var(k+1)StdDev etc.... Activity Name
    
 Each row will be one subject's mean values for one of the six activities, and each subject will appear in 
 six consecutive rows. Recall that each measurement in the raw data files is a normalized measurement (z-score), 
@@ -49,4 +49,15 @@ This large X_test file (and the same for the X_train file) has no row identifier
 Fortunately we have all of the 561 variable names contained in the "features.txt" file, and we also have the descriptors of the activities (coded 1-6) in the "activity_labels.txt" file. 
 
 ## Flow of the code:
+To pull all of the data together into a large combined file (step 4) the major chunks of code are as follows:
 
+1.  Preliminaries: invoke dplyr package and set working directory
+2.  Read  the Activity labels and list of variable names (features.txt)
+3.  create temporary table dataframes (using tbl_df) for the Xdata, subject data and y data. Use the list of Features 
+      as column names in the X_data table. 
+4.  bind (using mutate) the subject and activity id codes to the main X data. 
+
+   _NOTE: At this point, we have a table of the test data -- all columns.
+5. Now repeat steps 3 and 4 for the training data
+6. With the two major data frames established, SELECT just those columns containing means or standard deviations 
+      once for test data, once for training data.
