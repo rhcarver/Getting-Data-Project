@@ -1,11 +1,14 @@
-## GCD Project Work 1
-## Initial work on course project 
-## Load needed packages
+#####################################################################
+##  run_analysis.R  Project for Getting and Cleaning Data course   ##
+##  Please see README for discussion of logic and methods          ##
+#####################################################################
+
+## Load needed package
 library(dplyr)
 
 
-# Read in activity and feature labels. These will identify
-## the types of activities and the measurements taken.
+## Set working directory and Read in activity and feature labels. 
+## These will identify the types of activities and the measurements taken.
 ## Script assumes that within the Working Directory there is a folder
 ## called Coursera, and within that is a folder called "UCI HAR Dataset"
 ## now change working directory to the UCI HAR folder
