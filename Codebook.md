@@ -29,7 +29,10 @@ project assignment.
 *  Jerk indicates a computed first derivative of accleration
 
 
-# Data Dictionary  
+## Data Dictionary  
+Many of the following variables are axial (X-, Y-, Z-). In those instances, there is a definition for the X 
+direction only. Magnitude variables (ending in "Mag") are non-directional
+
 Column|Variable Name|Comments|
 |------|-----|------------|
 |1|SubjID|Subject ID number|
@@ -37,37 +40,37 @@ Column|Variable Name|Comments|
 |3|BodyAccM...X|Body acceleration Mean along X axis (next 2 refer to Y and Z)|
 |4|BodyAccM...Y||
 |5|BodyAccM...Z||
-|6|GravAccM...X|Body acceleration Mean along X axis|
+|6|GravAccM...X|Gravity acceleration Mean along X axis|
 |7|GravAccM...Y||
 |8|GravAccM...Z||
-|9|BodyAccJerkM...X||
+|9|BodyAccJerkM...X|Body acceleration Jerk Mean along X axis|
 |10|BodyAccJerkM...Y||
 |11|BodyAccJerkM...Z||
-|12|BodyGyroM...X||
+|12|BodyGyroM...X|Body Gyro Mean along X-axis|
 |13|BodyGyroM...Y||
 |14|BodyGyroM...Z||
-|15|BodyGyroJerkM...X||
+|15|BodyGyroJerkM...X|Body Gyro Jerk Mean along X-axis|
 |16|BodyGyroJerkM...Y||
 |17|BodyGyroJerkM...Z||
-|18|BodyAccMagM..||
-|19|GravAccMagM..||
-|20|BodyAccJerkMagM..||
-|21|BodyGyroMagM..||
-|22|BodyGyroJerkMagM..||
-|23|fBodyAccM...X||
+|18|BodyAccMagM..|Body Acc Magnitude Mean |
+|19|GravAccMagM..|Gravity Acc Magnitude Mean |
+|20|BodyAccJerkMagM..|Body Acc Jerk Magnitude Mean|
+|21|BodyGyroMagM..|Body Gyro Magnitude Mean|
+|22|BodyGyroJerkMagM..|Body Gyro Jerk Magnitude Mean|
+|23|fBodyAccM...X|Body acceleration Mean along X axis (frequency domain|
 |24|fBodyAccM...Y||
 |25|fBodyAccM...Z||
-|26|fBodyAccJerkM...X||
+|26|fBodyAccJerkM...X|Body acceleration Jerk Mean along X axis (freq) |
 |27|fBodyAccJerkM...Y||
 |28|fBodyAccJerkM...Z||
-|29|fBodyGyroM...X||
+|29|fBodyGyroM...X|Body Gyro Mean along X axis (freq) |
 |30|fBodyGyroM...Y||
 |31|fBodyGyroM...Z||
-|32|fBodyAccMagM..||
-|33|fBodyBodyAccJerkMagM..||
-|34|fBodyBodyGyroMagM..||
-|35|fBodyBodyGyroJerkMagM..||
-|36|BodyAccS...X||
+|32|fBodyAccMagM..|Body Acc Magnitude Mean(freq)|
+|33|fBodyBodyAccJerkMagM..|Body Acc Jerk Magnitude Mean(freq)|
+|34|fBodyBodyGyroMagM..|{not clear what the double Body indicates}|
+|35|fBodyBodyGyroJerkMagM..|{not clear what the double Body indicates}|
+|36|BodyAccS...X|Same as columns 3:35, except that remaining columns are for std deviations|
 |37|BodyAccS...Y||
 |38|BodyAccS...Z||
 |39|GravAccS...X||
