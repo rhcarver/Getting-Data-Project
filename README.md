@@ -17,13 +17,15 @@ standard deviation.
 Hence the result of the script will be a data set with a format like this:
    Subject   Activity   Var1-Mean    Var2-Mean ..... Var(k)-StdDev  Var(k+1)StdDev etc. 
    
-Each measurement in the raw data files is a normalized measurement (z-score), and the final tidy data set 
-will consist of the means of recorded measurements for each subject 
+Each row will be one subject's mean values for one of the six activities, and each subject will appear in 
+six consecutive rows. Recall that each measurement in the raw data files is a normalized measurement (z-score), 
+and the final tidy data set will consist of the means of recorded measurements for each subject 
 
-
-Plan for pullindata together (using dplyr)
-
+## Plan for pulling the data together (using dplyr)
+With the format of the final tidy dataset in mind, the coding strategy involved:
+* Invoking the dplyr package, to simplify variable selection and manipulaiton,  modifications of column names,
+   and other operations.
 Starting points:
-Main folder:  activity labels, features
-Train folder: subject, X, y
-Test folder:  subject, X, y (y is the activity)
+* Main folder:  activity labels, features
+* Train folder: subject, X, y
+* Test folder:  subject, X, y (y is the activity)
